@@ -46,6 +46,8 @@ def load_token():
 def save_token(token):
     """将token保存到文件"""
     try:
+        # 确保配置目录存在
+        os.makedirs(CONFIG_DIR, exist_ok=True)
         with open(TOKEN_PATH, "w", encoding="utf-8") as f:
             f.write(token)
     except Exception as e:
